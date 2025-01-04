@@ -1,0 +1,13 @@
+appName: django-app
+replicas: 2
+image: your-docker-repo/my-django-app:latest
+containerPort: 8000
+env:
+  secretKey:
+    name: DJANGO_SECRET_KEY
+    secretName: django-secrets
+    key: secret_key
+serviceAppName: django-service
+containerPortService: 80
+containerTargetPortService: 8080
+serviceType: NonePort
